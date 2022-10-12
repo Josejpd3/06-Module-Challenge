@@ -57,7 +57,7 @@ function historyFetch (e) {
 
 // Fetches a city depending on input, then fetches the weather for that city based off its cordinates
 function fetchResults(input) {
-    let locationUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${input}&limit=1&appid=${key}`
+    let locationUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${input}&limit=1&appid=${key}`
     fetch(locationUrl)
     .then(function (response) {
       return response.json();
