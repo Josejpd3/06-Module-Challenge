@@ -2,7 +2,6 @@
 let key = "5dbae0dc8c44a91682771011f1d94610";
 var historyList = [];
 let input;
-
 let searchInput = document.querySelector("#input")
 let searchBtn = document.querySelector("#searchBtn")
 let historySection = document.querySelector(".history-section")
@@ -11,7 +10,6 @@ let historySection = document.querySelector(".history-section")
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 // Initialize and retrieve store content --------------------------------
-
 function init() {
     var storedhistoryList = JSON.parse(localStorage.getItem("historyList"));
     if (storedhistoryList !== null) {
@@ -19,7 +17,6 @@ function init() {
     }
     renderhistoryList();
   }
-
 // ---------------------------------------------------------------------
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -36,8 +33,6 @@ function renderhistoryList() {
     button.setAttribute("onClick", "historyFetch(" + button.id + ")");
     button.classList.add("history")
     historySection.appendChild(button);
-
-    console.log(button.innerHTML)
   }
 }
 // ----------------------------------------------------------------------
@@ -50,16 +45,11 @@ function searchFetch() {
     fetchResults(input)
 }
 
-
-
-
-
 function historyFetch (e) {
   buttonClicked = e;
   input = document.getElementById(buttonClicked).textContent
   fetchResults(input)
 }
-
 
 // ----------------------------------------------------------------------
 
@@ -67,10 +57,6 @@ function historyFetch (e) {
 
 // Fetches a city depending on input, then fetches the weather for that city based off its cordinates
 function fetchResults(input) {
-
-
-    console.log(input)
-
     let locationUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${input}&limit=1&appid=${key}`
     fetch(locationUrl)
     .then(function (response) {
@@ -90,7 +76,6 @@ function fetchResults(input) {
             .then(function (data) {
             console.log("Weather data:", data);
             $("#icon").html(`<img src='http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png' alt='rain'></img>`)
-
             $(".temp-main").text("Temp: " + Math.round((data.main.temp - 273) * 9/5 + 32) + '\xB0' + "F")
             $(".wind-main").text("Wind: " + data.wind.speed + " MPH")
             $(".humidity-main").text("Humidity: " + data.main.humidity + "%")
@@ -101,7 +86,6 @@ function fetchResults(input) {
             })
             .then(function (data) {
                 console.log("forecast data: ", data)
-
                 let j = 0;
                 for (let i = 7; i < 47; i = i = i + 8) {
                     j++
@@ -139,16 +123,10 @@ function fetchResults(input) {
                     $(".wind" + j).text("Wind: " + data.list[i].wind.speed + " MPH")
                     $(".humidity" + j).text("Humidity: " + data.list[i].main.humidity + "%")
                 }
-
             })
     });
-
-
-
     $(".content-section").removeClass("hide")
 }
-
-
 
 // ----------------------------------------------------------------------
 
@@ -165,6 +143,7 @@ searchBtn.addEventListener("click", function(event) {
   if (inputText === "") {
     return;
   }
+
   for (let i = 0; i < historyList.length; i++)
   if (inputText === historyList[i]) {
     return;
@@ -175,132 +154,4 @@ searchBtn.addEventListener("click", function(event) {
   storehistoryList();
   renderhistoryList();
 });
-
-
-// ----------------------------------------------------------------------
-
-// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-// 
-// historySection.addEventListener("click", function(event) {
-//   var element = event.target;
-//   if (element.matches("button") === true) {
-//     var index = element.parentElement.getAttribute("data-index");
-//     historyList.splice(index, 1);
-//     storehistoryList();
-//     renderhistoryList();
-//   }
-// });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Calling Functions
 init()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// $(document).on('click', ".history", function (){
-//     var historyInput = $(this).text();
-//     console.log(historyInput);
-//     dynoLocation(historyInput);
-//     dynoLocationFiveDay(historyInput);
-//     $("#currentChosenLocation").text(historyInput);
- 
-//  });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Calls init to retrieve data and render it to the page on load
-init()
-
-
-
-// document.getElementById("").onClick = onClick;
-// document.getElementById("").onClick = onClick;
-// document.getElementById("").onClick = onClick;
-
