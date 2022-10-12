@@ -75,7 +75,7 @@ function fetchResults(input) {
             })
             .then(function (data) {
             console.log("Weather data:", data);
-            $("#icon").html(`<img src='http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png' alt='rain'></img>`)
+            $("#icon").html(`<img src='https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png' alt='rain'></img>`)
             $(".temp-main").text("Temp: " + Math.round((data.main.temp - 273) * 9/5 + 32) + '\xB0' + "F")
             $(".wind-main").text("Wind: " + data.wind.speed + " MPH")
             $(".humidity-main").text("Humidity: " + data.main.humidity + "%")
@@ -92,31 +92,31 @@ function fetchResults(input) {
                     console.log(i)
                     $(".date" + j).text()
                     if (data.list[i].weather[0].icon == "01d") {
-                        $(".icon" + j).html("<img src='http://openweathermap.org/img/wn/01d@2x.png' alt='rain'>")
+                        $(".icon" + j).html("<img src='https://openweathermap.org/img/wn/01d@2x.png' alt='rain'>")
                     }
                     if (data.list[i].weather[0].icon == "02d") {
-                        $(".icon" + j).html("<img src='http://openweathermap.org/img/wn/02d@2x.png' alt='rain'>")
+                        $(".icon" + j).html("<img src='https://openweathermap.org/img/wn/02d@2x.png' alt='rain'>")
                     }
                     if (data.list[i].weather[0].icon == "03d") {
-                        $(".icon" + j).html("<img src='http://openweathermap.org/img/wn/03d@2x.png' alt='rain'>")
+                        $(".icon" + j).html("<img src='https://openweathermap.org/img/wn/03d@2x.png' alt='rain'>")
                     }
                     if (data.list[i].weather[0].icon == "04d") {
-                        $(".icon" + j).html("<img src='http://openweathermap.org/img/wn/04d@2x.png' alt='rain'>")
+                        $(".icon" + j).html("<img src='https://openweathermap.org/img/wn/04d@2x.png' alt='rain'>")
                     }
                     if (data.list[i].weather[0].icon == "09d") {
-                        $(".icon" + j).html("<img src='http://openweathermap.org/img/wn/09d@2x.png' alt='rain'>")
+                        $(".icon" + j).html("<img src='https://openweathermap.org/img/wn/09d@2x.png' alt='rain'>")
                     }
                     if (data.list[i].weather[0].icon == "10d") {
-                        $(".icon" + j).html("<img src='http://openweathermap.org/img/wn/10d@2x.png' alt='rain'>")
+                        $(".icon" + j).html("<img src='https://openweathermap.org/img/wn/10d@2x.png' alt='rain'>")
                     }
                     if (data.list[i].weather[0].icon == "11d") {
-                        $(".icon" + j).html("<img src='http://openweathermap.org/img/wn/11d@2x.png' alt='rain'>")
+                        $(".icon" + j).html("<img src='https://openweathermap.org/img/wn/11d@2x.png' alt='rain'>")
                     }
                     if (data.list[i].weather[0].icon == "13d") {
-                        $(".icon" + j).html("<img src='http://openweathermap.org/img/wn/13d@2x.png' alt='rain'>")
+                        $(".icon" + j).html("<img src='https://openweathermap.org/img/wn/13d@2x.png' alt='rain'>")
                     }
                     if (data.list[i].weather[0].icon == "50d") {
-                        $(".icon" + j).html("<img src='http://openweathermap.org/img/wn/50d@2x.png' alt='rain'>")
+                        $(".icon" + j).html("<img src='https://openweathermap.org/img/wn/50d@2x.png' alt='rain'>")
                     }
 
                     $(".temp" + j).text("Temp: " + Math.round((data.list[i].main.temp - 273) * 9/5 + 32) + '\xB0' + "F")
