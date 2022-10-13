@@ -10,3 +10,16 @@
 
 ---
 
+## Begin by entering the name of a city, and pressing search.
+### When revisiting the page you are able to quickly click on the history buttons to quickly access those previous cities.
+
+___
+
+## Desktop
+![weather-dash-wide](./assets/imgs/weather-dash-wide.jpg)
+
+___
+
+## Phone
+![weather-dash-narrow](./assets/imgs/weather-dash-narrow.jpg)
+
