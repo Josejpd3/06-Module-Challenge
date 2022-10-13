@@ -50,13 +50,13 @@ function historyFetch (e) {
   input = document.getElementById(buttonClicked).textContent
   fetchResults(input)
 }
-
 // ----------------------------------------------------------------------
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 // Fetches a city depending on input, then fetches the weather for that city based off its cordinates
 function fetchResults(input) {
+    getDate()
     let locationUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${input}&limit=1&appid=${key}`
     fetch(locationUrl)
     .then(function (response) {
@@ -127,7 +127,6 @@ function fetchResults(input) {
     });
     $(".content-section").removeClass("hide")
 }
-
 // ----------------------------------------------------------------------
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -154,4 +153,25 @@ searchBtn.addEventListener("click", function(event) {
   storehistoryList();
   renderhistoryList();
 });
+// ----------------------------------------------------------------------
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// Displays dates for current and upcoming 5 days
+function getDate() {
+  let currentDay = moment().format("L");
+  $("#main-date").text("(" + currentDay + ")")
+  $(".date1").text("(" + moment().add(1,'d').format('L') + ")")
+  $(".date2").text("(" + moment().add(2,'d').format('L') + ")")
+  $(".date3").text("(" + moment().add(3,'d').format('L') + ")")
+  $(".date4").text("(" + moment().add(4,'d').format('L') + ")")
+  $(".date5").text("(" + moment().add(5,'d').format('L') + ")")
+}
+
+// ----------------------------------------------------------------------
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// Initializes on load
 init()
+// ----------------------------------------------------------------------
